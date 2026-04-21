@@ -1,0 +1,115 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  model
+  booker
+  manager
+  admin
+}
+
+enum OtpPurpose {
+  register
+}
+
+enum IdempotencyStatus {
+  IN_PROGRESS
+  COMPLETED
+  FAILED
+}
+
+model User {
+  id           String       @id @default(uuid())
+  email        String       @unique
+  passwordHash String
+  role         Role
+  createdAt    DateTime     @default(now())
+  isVerified   Boolean      @default(false)
+  isBlocked    Boolean      @default(false)
+
+  modelProfile ModelProfile?
+  idempotencyRecords IdempotencyRecord[]
+}
+
+model EmailOtp {
+  id           String      @id @default(uuid())
+  email        String
+  codeHash     String
+  purpose      OtpPurpose
+  expiresAt    DateTime
+  createdAt    DateTime    @default(now())
+  consumedAt   DateTime?
+  attemptsLeft Int         @default(5)
+
+  @@index([email, purpose])
+}
+
+model ModelProfile {
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  fullName  String   @default("")
+  height    Int?
+  weight    Int?
+  bust      Int?
+  waist     Int?
+  hips      Int?
+  shoeSize  Float?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  projects        Project[]
+  portfolioImages PortfolioImage[]
+}
+
+model Project {
+  id        String   @id @default(uuid())
+  modelId   String
+  title     String
+  date      DateTime
+  location  String
+  createdAt DateTime @default(now())
+
+  model ModelProfile @relation(fields: [modelId], references: [id], onDelete: Cascade)
+
+  @@index([modelId])
+}
+
+model PortfolioImage {
+  id        String   @id @default(uuid())
+  modelId   String
+  imageUrl  String
+  storageKey String?
+  createdAt DateTime @default(now())
+
+  model ModelProfile @relation(fields: [modelId], references: [id], onDelete: Cascade)
+
+  @@index([modelId])
+}
+
+/// Stores results of idempotent requests for safe retries.
+///
+/// Used mainly for POST endpoints that create resources.
+model IdempotencyRecord {
+  id             String            @id @default(uuid())
+  userId         String
+  key            String
+  scope          String
+  requestHash    String
+  status         IdempotencyStatus @default(IN_PROGRESS)
+  responseStatus Int?
+  responseBody   Json?
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, key, scope])
+  @@index([userId])
+}
