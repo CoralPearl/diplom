@@ -1,0 +1,156 @@
+/* 🌸 Общий стиль */
+body {
+  background: linear-gradient(120deg, #ffeaf5, #f4f4f4);
+  font-family: 'Playfair Display', serif;
+  color: #444;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🌸 Шапка */
+header {
+  background: #ffb6c1;
+  text-align: center;
+  padding: 18px 0;
+  color: white;
+  font-style: italic;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+header h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+header nav a {
+  color: white;
+  margin: 0 14px;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: opacity 0.3s ease;
+}
+header nav a:hover {
+  opacity: 0.7;
+}
+
+/* 🌸 Контейнер */
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* 🌸 Flash сообщения */
+.flash {
+  background: #ffe3ef;
+  border: 1px solid #f6b2cc;
+  padding: 10px;
+  border-radius: 12px;
+  color: #d63384;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+/* 🌸 Заголовки */
+.page-title {
+  color: #d63384;
+  font-size: 1.8em;
+  font-style: italic;
+  margin-bottom: 25px;
+}
+
+/* 🌸 Категории */
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.category-card {
+  background: #fff0f6;
+  border: 2px solid #f5b6cc;
+  border-radius: 20px;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.category-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+.category-card p {
+  font-size: 1.2em;
+  color: #d63384;
+  font-style: italic;
+}
+
+/* 🌸 Карточки номеров */
+.rooms {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+.room-card {
+  background: #fff;
+  border: 2px solid #f5b6cc;
+  border-radius: 20px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+.room-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* 🌸 Кнопки и формы */
+input[type="text"], input[type="date"] {
+  width: 90%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+.book-btn {
+  background: #ff66b2;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 15px;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 1.1em;
+}
+.book-btn:hover {
+  background: #ff3385;
+}
+
+/* 🌸 Кнопка отмены */
+.cancel-btn {
+  display: inline-block;
+  background: #ffd1e6;
+  color: #d63384;
+  border-radius: 10px;
+  padding: 6px 12px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.cancel-btn:hover {
+  background: #ffb6d1;
+}
+
+/* 🌸 Анимация появления */
+.fade-in {
+  animation: fadeIn 0.8s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}

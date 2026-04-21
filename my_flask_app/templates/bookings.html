@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Мои брони — Coral Pearl{% endblock %}
+{% block content %}
+  <h2 class="page-title">Мои бронирования</h2>
+
+  <div class="rooms">
+    {% if bookings %}
+      {% for b in bookings %}
+        <div class="room-card fade-in">
+          <p><strong>Клиент:</strong> {{ b.client_name }}</p>
+          <p><strong>Номер:</strong> {{ b.room_number }}</p>
+          <p><strong>Категория:</strong> {{ b.category }}</p>
+          <p><strong>С:</strong> {{ b.check_in }}</p>
+          <p><strong>По:</strong> {{ b.check_out }}</p>
+          <a href="{{ url_for('delete_booking', booking_id=b.id) }}" class="cancel-btn">Отменить</a>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>Пока нет бронирований.</p>
+    {% endif %}
+  </div>
+{% endblock %}

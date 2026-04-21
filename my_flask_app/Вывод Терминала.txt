@@ -1,0 +1,343 @@
+Last login: Thu Oct  2 11:23:36 on ttys000
+/Users/marzhan/.zprofile:1: no such file or directory: /opt/homebrew/bin/brew
+/Users/marzhan/.zprofile:2: no such file or directory: /opt/homebrew/bin/brew
+marzhan@MacBook-Air-Marzhan ~ % mysql -u root -p     
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 52
+Server version: 9.4.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| Hotel              |
+| hotel_db           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.001 sec)
+
+mysql> CREATE USER 'flaskuser'@'localhost' IDENTIFIED BY '12345678';
+Query OK, 0 rows affected (0.011 sec)
+
+mysql> CREATE USER 'flaskuser'@'localhost' IDENTIFIED BY '12345678';
+ERROR 1396 (HY000): Operation CREATE USER failed for 'flaskuser'@'localhost'
+mysql> mysql -u root -p
+    -> 12345678
+    -> exit;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mysql -u root -p
+12345678
+exit' at line 1
+mysql> exit;
+Bye
+marzhan@MacBook-Air-Marzhan ~ % mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 53
+Server version: 9.4.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| Hotel              |
+| hotel_db           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.001 sec)
+
+mysql> CREATE USER 'flaskuser'@'localhost' IDENTIFIED BY '12345678';
+ERROR 1396 (HY000): Operation CREATE USER failed for 'flaskuser'@'localhost'
+mysql> CREATE USER 'flaskuser'@'localhost'
+    -> IDENTIFIED BY '12345678';
+ERROR 1396 (HY000): Operation CREATE USER failed for 'flaskuser'@'localhost'
+mysql> CREATE USER 'flaskuser'@'localhost'
+    -> IDENTIFIED BY '12345678';
+ERROR 1396 (HY000): Operation CREATE USER failed for 'flaskuser'@'localhost'
+mysql> CREATE USER 'flaskuser'@'localhost'
+    -> CREATE USER 'flaskuser'@'localhost' IDENTIFIED BY '12345678';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CREATE USER 'flaskuser'@'localhost' IDENTIFIED BY '12345678'' at line 2
+mysql> CREATE USER 'flaskuser'@'localhost' IDENTIFIED BY '12345678';
+ERROR 1396 (HY000): Operation CREATE USER failed for 'flaskuser'@'localhost'
+mysql> SELECT user, host FROM mysql.user;
++------------------+-----------+
+| user             | host      |
++------------------+-----------+
+| flaskuser        | localhost |
+| mysql.infoschema | localhost |
+| mysql.session    | localhost |
+| mysql.sys        | localhost |
+| root             | localhost |
++------------------+-----------+
+5 rows in set (0.000 sec)
+
+mysql> ALTER USER 'flaskuser'@'localhost' IDENTIFIED BY '12345678';
+Query OK, 0 rows affected (0.003 sec)
+
+mysql> GRANT ALL PRIVILEGES ON hotel_db.* TO 'flaskuser'@'localhost';
+Query OK, 0 rows affected (0.003 sec)
+
+mysql> GRANT ALL PRIVILEGES ON hotel_db.* TO 'flaskuser'@'localhost';
+Query OK, 0 rows affected (0.001 sec)
+
+mysql> GRANT ALL PRIVILEGES ON hotel_db.* TO 'flaskuser'@'localhost';
+Query OK, 0 rows affected (0.001 sec)
+
+mysql> FLUSH PRIVILEGES;
+Query OK, 0 rows affected, 1 warning (0.002 sec)
+
+mysql> mysql -u flaskuser -p hotel_db
+    -> 12345678
+    -> 
+zsh: suspended  mysql -u root -p
+marzhan@MacBook-Air-Marzhan ~ % GRANT ALL PRIVILEGES ON hotel_db.* TO 'flaskuser'@'localhost';
+FLUSH PRIVILEGES;
+zsh: no matches found: hotel_db.*
+zsh: command not found: FLUSH
+marzhan@MacBook-Air-Marzhan ~ % GRANT ALL PRIVILEGES ON hotel_db.* TO 'flaskuser'@'localhost';
+
+zsh: no matches found: hotel_db.*
+marzhan@MacBook-Air-Marzhan ~ % mysql -u flaskuser -p hotel_db
+Enter password: 
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 54
+Server version: 9.4.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> mysql -u flaskuser -p hotel_db
+    -> 12345678
+    -> 12345678
+    -> 12345678
+    -> 123456789
+    -> 
+    -> 
+    -> 
+    -> 
+    -> 
+    -> 
+    -> 
+    -> 
+    -> 
+    -> 
+    -> 
+    -> 
+    -> 
+    -> учше
+    -> exit
+    -> 
+zsh: suspended  mysql -u flaskuser -p hotel_db
+marzhan@MacBook-Air-Marzhan ~ % GRANT ALL PRIVILEGES ON hotel_db.* TO 'flaskuser'@'localhost';
+
+zsh: no matches found: hotel_db.*
+marzhan@MacBook-Air-Marzhan ~ % SELECT user, host FROM mysql.user;
+zsh: command not found: SELECT
+marzhan@MacBook-Air-Marzhan ~ % SHOW DATABASES;
+zsh: command not found: SHOW
+marzhan@MacBook-Air-Marzhan ~ % mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 55
+Server version: 9.4.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> exit;
+Bye
+marzhan@MacBook-Air-Marzhan ~ % mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 56
+Server version: 9.4.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE USER 'flaskuser'@'localhost' IDENTIFIED BY '12345678';
+ERROR 1396 (HY000): Operation CREATE USER failed for 'flaskuser'@'localhost'
+mysql> CREATE USER 'flaskuser'@'localhost'
+    -> IDENTIFIED BY '12345678';
+ERROR 1396 (HY000): Operation CREATE USER failed for 'flaskuser'@'localhost'
+mysql> CREATE USER 'flaskuser'@'localhost'
+    -> IDENTIFIED BY '12345678'
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 3
+mysql> CREATE USER 'flaskuser'@'localhost'
+    -> IDENTIFIED BY '12345678');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 2
+mysql> CREATE USER 'flaskuser'@'localhost'
+    -> IDENTIFIED BY '12345678';
+ERROR 1396 (HY000): Operation CREATE USER failed for 'flaskuser'@'localhost'
+mysql> GRANT ALL PRIVILEGES ON hotel_db.* TO 'flaskuser'@'localhost';
+Query OK, 0 rows affected (0.001 sec)
+
+mysql> FLUSH PRIVILEGES);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> FLUSH PRIVILEGES;
+Query OK, 0 rows affected, 1 warning (0.003 sec)
+
+mysql> mysql -u flaskuser -p hotel_db
+    -> 12345678
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mysql -u flaskuser -p hotel_db
+12345678
+)' at line 1
+mysql> mysql -u flaskuser -p hotel_db
+    -> 12345678
+    -> 
+    -> 
+    -> 12345678
+    -> 12345678
+    -> exit;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mysql -u flaskuser -p hotel_db
+12345678
+
+
+12345678
+12345678
+exit' at line 1
+mysql> exit
+Bye
+marzhan@MacBook-Air-Marzhan ~ % mysql -u flaskuser -p hotel_db
+Enter password: 
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 57
+Server version: 9.4.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_hotel_db |
++--------------------+
+| bookings           |
+| rooms              |
++--------------------+
+2 rows in set (0.001 sec)
+
+mysql> SELECT DATABASE();
++------------+
+| DATABASE() |
++------------+
+| hotel_db   |
++------------+
+1 row in set (0.000 sec)
+
+mysql> USE hotel_db;
+Database changed
+mysql> SELECT id, room_number, capacity, price, is_available FROM rooms;
++----+-------------+----------+---------+--------------+
+| id | room_number | capacity | price   | is_available |
++----+-------------+----------+---------+--------------+
+|  1 | 101         |        2 | 3500.00 |            1 |
+|  2 | 102         |        3 | 5000.00 |            1 |
+|  3 | 101         |        2 | 3500.00 |            1 |
+|  4 | 102         |        3 | 5000.00 |            1 |
++----+-------------+----------+---------+--------------+
+4 rows in set (0.000 sec)
+
+mysql> SELECT COUNT(*) FROM rooms;
++----------+
+| COUNT(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.002 sec)
+
+mysql> USE hotel_db;
+Database changed
+mysql> SELECT id, room_number, capacity, price, is_available FROM rooms;
++----+-------------+----------+---------+--------------+
+| id | room_number | capacity | price   | is_available |
++----+-------------+----------+---------+--------------+
+|  1 | 101         |        2 | 3500.00 |            1 |
+|  2 | 102         |        3 | 5000.00 |            1 |
+|  3 | 101         |        2 | 3500.00 |            1 |
+|  4 | 102         |        3 | 5000.00 |            1 |
++----+-------------+----------+---------+--------------+
+4 rows in set (0.000 sec)
+
+mysql> SELECT COUNT(*) FROM rooms;
++----------+
+| COUNT(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.000 sec)
+
+mysql> USE hotel_db;
+Database changed
+mysql> SELECT id, room_number, capacity, price, is_available FROM rooms;
++----+-------------+----------+---------+--------------+
+| id | room_number | capacity | price   | is_available |
++----+-------------+----------+---------+--------------+
+|  1 | 101         |        2 | 3500.00 |            1 |
+|  2 | 102         |        3 | 5000.00 |            1 |
+|  3 | 101         |        2 | 3500.00 |            1 |
+|  4 | 102         |        3 | 5000.00 |            1 |
++----+-------------+----------+---------+--------------+
+4 rows in set (0.000 sec)
+
+mysql> SELECT COUNT(*) FROM rooms;
++----------+
+| COUNT(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.001 sec)
+
+mysql> SELECT * FROM bookings;
+Empty set (0.000 sec)
+
+mysql> 

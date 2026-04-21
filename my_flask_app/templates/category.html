@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}{{ category }} — Coral Pearl{% endblock %}
+{% block content %}
+  <h2 class="page-title">{{ category }} номера</h2>
+
+  <div class="rooms">
+    {% for r in rooms %}
+      <div class="room-card fade-in">
+        <p><strong>Номер:</strong> {{ r.room_number }}</p>
+        <p><strong>Вместимость:</strong> {{ r.capacity }}</p>
+        <p><strong>Цена:</strong> {{ r.price }} сом/ночь</p>
+
+        <form method="post" class="book-form">
+          <input type="hidden" name="room_id" value="{{ r.id }}">
+          <input type="text" name="client_name" placeholder="Ваше имя" required>
+          <div class="date-row">
+            <label>Заезд</label>
+            <input type="date" name="check_in" required>
+            <label>Выезд</label>
+            <input type="date" name="check_out" required>
+          </div>
+          <button type="submit" class="book-btn">Забронировать</button>
+        </form>
+      </div>
+    {% endfor %}
+  </div>
+
+  <a href="{{ url_for('home') }}" class="back-link">← Назад</a>
+{% endblock %}

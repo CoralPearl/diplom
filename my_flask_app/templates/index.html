@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Главная — Coral Pearl{% endblock %}
+{% block content %}
+  <h2 class="page-title">Выберите категорию</h2>
+
+  <div class="categories">
+    {% if categories %}
+      {% for c in categories %}
+        <a href="{{ url_for('show_category', category=c) }}" class="category-card fade-in">
+          <p>{{ c }}</p>
+        </a>
+      {% endfor %}
+    {% else %}
+      <p>Категории не найдены.</p>
+    {% endif %}
+  </div>
+{% endblock %}
